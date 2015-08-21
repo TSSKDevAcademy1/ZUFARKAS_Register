@@ -15,36 +15,36 @@ public class FileRegisterLoader implements RegisterLoader {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.RegisterLoader#save(register.Register)
 	 */
 	@Override
 	public void save(Register register) throws IOException, FileNotFoundException {
-		try (FileOutputStream out = new FileOutputStream("register2.bin"); 
-				ObjectOutputStream source = new ObjectOutputStream(out);
-		) {
+		try (FileOutputStream out = new FileOutputStream("register2.bin");
+				ObjectOutputStream source = new ObjectOutputStream(out);) {
 			source.writeObject(register);
-			// for (int i = 0; i < register.getCount(); i++) {
-			// source.writeObject(register.getPerson(i));
+
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.RegisterLoader#load()
 	 */
 	@Override
 	public Register load() throws IOException, ClassNotFoundException, FileNotFoundException {
 		File f = new File("register2.bin");
 		if (f.exists()) {
-			try (FileInputStream in = new FileInputStream("register2.bin"); // nacitanie
+			try (FileInputStream in = new FileInputStream("register2.bin");
 					ObjectInputStream inp = new ObjectInputStream(in);) {
 
-				return (Register) inp.readObject(); // nacita cely register
+				return (Register) inp.readObject();
 			}
 		}
 		return null;
 	}
-	
-	
 
 }

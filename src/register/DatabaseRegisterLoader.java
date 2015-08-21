@@ -24,7 +24,6 @@ public class DatabaseRegisterLoader implements RegisterLoader {
 	public static final String SELECT = "SELECT id, firstname, surname FROM student";
 	public static final String DELETE = "DELETE from register";
 
-	// ;
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -35,6 +34,7 @@ public class DatabaseRegisterLoader implements RegisterLoader {
 		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) {
 			try (Statement stmt = con.createStatement()) {
 				stmt.executeUpdate(DELETE);
+
 			}
 
 			try (PreparedStatement stmt = con.prepareStatement(INSERT)) {
@@ -56,26 +56,17 @@ public class DatabaseRegisterLoader implements RegisterLoader {
 	 */
 	@Override
 	public Register load() throws Exception {
-		// File f = new File("register2.bin");
-		// if (f.exists()) {
-		// try (FileInputStream in = new FileInputStream("register2.bin"); //
-		// nacitanie
-		// ObjectInputStream inp = new ObjectInputStream(in);) {
-		//
-		// return (Register) inp.readObject(); // nacita cely register
-		// }
-		// }
-		// return null;
+
 		Register register = new ArrayRegister(20);
-		System.out.println("tu1");
+
 		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			System.out.println("tu2");
+
 			try (Statement stmt = con.createStatement()) {
 				ResultSet rs = stmt.executeQuery(SELECT);
-System.out.println("tu");
+
 				while (rs.next()) {
-					//System.out.printf("%-32s %-32s%n", rs.getString(2), rs.getString(3));
-					register.addPerson(new Person(rs.getString(2), rs.getString(3)));
+
+					register.addPerson(new Person(rs.getString(1), rs.getString(2)));
 				}
 
 				rs.close();

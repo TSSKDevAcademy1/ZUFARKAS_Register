@@ -27,25 +27,25 @@ public class ListRegister implements Register {
 
 	@Override
 	public Person findPersonByName(String name) {
-//		for (int i = 0; i < persons.size(); i++) {
-//			if (name.equals(persons.get(i).getName())) {
-//				return getPerson(i);
-//			}
-//		}
-//		return null;
+		// for (int i = 0; i < persons.size(); i++) {
+		// if (name.equals(persons.get(i).getName())) {
+		// return getPerson(i);
+		// }
+		// }
+		// return null;
 		return persons.stream().filter(person -> name.equals(person.getName())).findFirst().orElse(null);
-		
+
 	}
 
 	@Override
 	public Person findPersonByPhoneNumber(String phoneNumber) {
-//		for (int i = 0; i < persons.size(); i++) {
-//			if (phoneNumber.equals(persons.get(i).getPhoneNumber())) {
-//				return getPerson(i);
-//			}
-//		}
-//		return null;
-	return	persons.stream().filter(person -> phoneNumber.equals(person.getPhoneNumber())).findFirst().orElse(null);
+		// for (int i = 0; i < persons.size(); i++) {
+		// if (phoneNumber.equals(persons.get(i).getPhoneNumber())) {
+		// return getPerson(i);
+		// }
+		// }
+		// return null;
+		return persons.stream().filter(person -> phoneNumber.equals(person.getPhoneNumber())).findFirst().orElse(null);
 	}
 
 	@Override
@@ -58,7 +58,5 @@ public class ListRegister implements Register {
 	public int getSize() {
 		return persons.size();
 	}
-
-
 
 }

@@ -65,14 +65,12 @@ public interface Register extends Serializable {
 	 *            person to remove
 	 */
 	void removePerson(Person person);
-	
+
 	/**
 	 * Appends the specified person to the end of this register.
 	 * 
 	 * @param person
 	 *            person to append to this register
 	 */
-
-
 
 }

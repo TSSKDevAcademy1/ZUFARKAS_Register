@@ -23,7 +23,9 @@ public class ArrayRegister implements Register {
 		count = 0;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#getCount()
 	 */
 	@Override
@@ -31,7 +33,9 @@ public class ArrayRegister implements Register {
 		return count;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#getSize()
 	 */
 	@Override
@@ -39,7 +43,9 @@ public class ArrayRegister implements Register {
 		return persons.length;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#getPerson(int)
 	 */
 	@Override
@@ -47,7 +53,9 @@ public class ArrayRegister implements Register {
 		return persons[index];
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#addPerson(register.Person)
 	 */
 	@Override
@@ -57,16 +65,18 @@ public class ArrayRegister implements Register {
 	}
 
 	// TODO: Implement the method findPersonByName
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#findPersonByName(java.lang.String)
 	 */
 	@Override
 	public Person findPersonByName(String name) {
 
-		//Person p = new Person(null, null);
+		// Person p = new Person(null, null);
 		for (int i = 0; i < getCount(); i++) {
 			if (name.equals(getPerson(i).getName())) {
-				//p.setName(persons[i].getName());
+				// p.setName(persons[i].getName());
 				return getPerson(i);
 			}
 		}
@@ -74,15 +84,17 @@ public class ArrayRegister implements Register {
 	}
 
 	// TODO: Implement the method findPersonByPhoneNumber
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#findPersonByPhoneNumber(java.lang.String)
 	 */
 	@Override
 	public Person findPersonByPhoneNumber(String phoneNumber) {
-		//Person p = new Person(null, null);
+
 		for (int i = 0; i < getCount(); i++) {
 			if (phoneNumber.equals(getPerson(i).getPhoneNumber())) {
-				//p.setPhoneNumber(getPerson(i).getPhoneNumber());
+
 				return getPerson(i);
 			}
 		}
@@ -90,18 +102,20 @@ public class ArrayRegister implements Register {
 	}
 
 	// TODO: Implement the method removePerson
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see register.Register#removePerson(register.Person)
 	 */
 	@Override
 	public void removePerson(Person person) {
-		//Person p = new Person(null, null);
+
 		for (int i = 0; i < getCount(); i++) {
 			Person p = getPerson(i);
 			if (p.getName() != null && p.getName().equals(person.getName())) {
 				for (int j = i; j < getCount() - 1; j++) {
-					getPerson(j).setName(getPerson(j+1).getName());
-				getPerson(j).setPhoneNumber(getPerson(j+1).getPhoneNumber());
+					getPerson(j).setName(getPerson(j + 1).getName());
+					getPerson(j).setPhoneNumber(getPerson(j + 1).getPhoneNumber());
 				}
 				count--;
 
@@ -113,7 +127,5 @@ public class ArrayRegister implements Register {
 		}
 
 	}
-
-
 
 }

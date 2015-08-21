@@ -24,7 +24,6 @@ public class ConsoleUI implements Serializable {
 	 * @see readLine()
 	 */
 	private BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-	// private RegisterLoader loader = new DatabaseRegisterLoader();
 
 	private RegisterLoader loader = new TextFileRegisterLoader();
 
@@ -123,58 +122,33 @@ public class ConsoleUI implements Serializable {
 		System.out.println();
 	}
 
-	 private void addToRegister() {
-	
-	 // Person p = new Person(null, null);
-	
-	 // insert Name
-	 System.out.println("Enter Name: ");
-	 String name = readLine();
-	
-	 if (register.findPersonByName(name) != null) {
-	 System.out.println("Person with same name exists!");
-	 return;
-	 }
-	 // p.setName(name);
-	
-	 // insert PhoneNumber
-	 System.out.println("Enter Phone Number: ");
-	 String phoneNumber = readLine();
-	
-	 if (register.findPersonByPhoneNumber(phoneNumber) != null) {
-	 System.out.println("Person with same phone number exists!");
-	 return;
-	 }
-	 // p.setPhoneNumber(phoneNumber);
-	 // register.ArrayRegister(p);
-	 register.addPerson(new Person(name, phoneNumber));
-	 System.out.println("Add person: " + name + " (" + phoneNumber + ") sucessful !");
-	
-	 }
+	private void addToRegister() {
 
-//	private void addToRegister() {
-//
-//		// Person p = new Person(null, null);
-//
-//		// insert Name
-//		System.out.println("Enter Name: ");
-//		String name = readLine();
-//		System.out.println("Enter Phone Number: ");
-//		String phoneNumber = readLine();
-//
-//		if ((register.findPersonByName(name) != null && register.findPersonByPhoneNumber(phoneNumber) != null)) {
-//			System.out.println("Person with same name and same phone number exists!");
-//			return;
-//
-//		} else if (register.findPersonByPhoneNumber(phoneNumber) != null) {
-//			System.out.println("Person with some phone number exists.");
-//			return;
-//		}
-//
-//		register.addPerson(new Person(name, phoneNumber));
-//		System.out.println("Add person: " + name + " (" + phoneNumber + ") sucessful !");
-//
-//	}
+		// insert Name
+		System.out.println("Enter Name: ");
+		String name = readLine();
+
+		if (register.findPersonByName(name) != null) {
+			System.out.println("Person with same name exists!");
+			return;
+		}
+
+		// insert PhoneNumber
+		System.out.println("Enter Phone Number: ");
+		String phoneNumber = readLine();
+
+		if (register.findPersonByPhoneNumber(phoneNumber) != null) {
+			System.out.println("Person with same phone number exists!");
+			return;
+		}
+		
+		// p.setPhoneNumber(phoneNumber);
+		register.addPerson(new Person(name, phoneNumber));
+		System.out.println("Add person: " + name + " (" + phoneNumber + ") sucessful !");
+
+	}
+
+	
 
 	// TODO: Implement the method updateRegister
 	private void updateRegister() {

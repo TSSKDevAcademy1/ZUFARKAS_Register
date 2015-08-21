@@ -67,7 +67,7 @@ public class Person implements Comparable<Person>, Serializable {
 	}
 
 	/**
-	 * Validates the phone number. Valid phone numbers contains only digits.
+	 * Validates the phone number. Valid phone numbers contains only 10 digits.
 	 * 
 	 * @param phoneNumber
 	 *            phone number to validate
@@ -75,8 +75,8 @@ public class Person implements Comparable<Person>, Serializable {
 	 *         otherwise
 	 */
 	private boolean isValidPhoneNumber(String phoneNumber) {
-		// return true;
-		if (phoneNumber == null || phoneNumber.equals("")) {
+
+		if (phoneNumber == null || phoneNumber.equals("") || phoneNumber.length() > 10 || phoneNumber.length() < 10) {
 			return false;
 		}
 		int len = phoneNumber.length();

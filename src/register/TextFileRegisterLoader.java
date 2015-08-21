@@ -25,7 +25,7 @@ public class TextFileRegisterLoader implements RegisterLoader {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see register.RegisterLoader#save(register.Register)
+	 * @see register.RegisterLoader#save(register.Register) nacita
 	 */
 	@Override
 	public void save(Register register) throws IOException, FileNotFoundException {
@@ -48,7 +48,7 @@ public class TextFileRegisterLoader implements RegisterLoader {
 		File f = new File("file.txt");
 		Register register = new ArrayRegister(20);
 		if (!f.exists()) {
-			return register; //vrati prazdny register
+			return register;
 		}
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(f))) {
